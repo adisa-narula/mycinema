@@ -1,0 +1,6 @@
+As a user I want to watch a movie. 
+There are to many movies to choose from. 
+As a user I want the web application to help me decide what to watch.
+As a user I want to see the information about the movie I'm going to watch. 
+As a user I want the web application to show me statistics of the types of movies I choose to watch. 
+As a user I want to save movies to watch in the future. 

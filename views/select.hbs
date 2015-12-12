@@ -1,0 +1,63 @@
+<!-- {{#if user}}
+<h4 class = "user"> Logged in as {{user.username}}</h4>
+{{/if}} -->
+
+<div class = "top-about">
+  <br><h4 style = "color:white"> {{user}}, what are you in the mood for today?</h4>
+  <!-- add form  -->
+  <form method="post" action="/select" id = "user-choice">
+    <div>
+      <button type = "button" name = "selection" value="movie" id = "movie-btn">Movie</button>
+      <button type = "button" name = "selection" value ="tv-show" id= "tv-btn">TV Show</button>
+    </div>
+  <div id = "another_submit">
+    <div id = "submit_form">
+    <div id = "movie_form">
+    <div>
+      <span style = "color:white">Genre:</span>
+        <select class = "form-control" form = "user-choice" name = "genre_movie">
+        {{#each movie_genre}}
+        <option value ="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div>
+      <br> <span style = "color:white">Year (1874-2015): </span><br>
+      <input class = "year_user form-control" type="number" name="year_movie" min="1874" max="2015" value="2015"><br>
+    </div>
+    </div>
+    <div id = "tv_form">
+    <div>
+    <span style = "color:white">Genre:</span>
+    <select class = "form-control" form = "user-choice" name = "genre_tv">
+      {{#each tv_genre}}
+      <option value ="{{this.name}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <!-- <div>
+    <br> <span style = "color:white">Year (1874-2015): </span><br>
+    <input class = "year_user form-control" type="number" name="year_movie" min="1874" max="2015" value="2015"><br>
+  </div> -->
+  </div>
+      <input id = "user-selection" type = "hidden" name="result" value="temporary">
+      <br><input type = "submit" name = "submit-form" value="Submit">
+  </div>
+</div>
+</form>
+</div>
+
+<div class = "bottom">
+  <div id = "popcorn-img">
+    <img class = "img-rounded pull-left" src = "/images/popping_icon.png" alt="popcorn">
+  </div>
+  {{#if warning}}
+  <div id = "quote">
+    <p> {{warning}} </p>
+  </div>
+  {{/if}}
+</div>
+
+
+  <!-- <select class = "form-control"> -->
+<script src = "javascripts/javascript.js"></script>

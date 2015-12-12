@@ -1,0 +1,33 @@
+<h2> Register </h2>
+<div class = "login-form login">
+<form method = "post" action = "/register">
+  <!-- Name: <input type = "text" name = "name"><br><br> -->
+  First Name: <input type = "text" name="first_name"><br><br>
+  Last Name: <input type = "text" name="last_name"><br><br>
+  Age: <input type = "number" name="age"><br><br>
+  Username: <input type = "text" name = "username"><br><br>
+  Password: <input type = "password" name = "password"><br><br>
+  <!-- Email: <input type = "text" name = "email"><br><br> -->
+  <input type = "submit" value = "Sign up">
+</form>
+</div>
+
+<!-- {{#if user}}
+<div class = "user"><br>Logged in as {{user.username}}</div>
+{{/if}} -->
+
+{{#if error}}
+<div class = "error-user">{{error}} </div>
+{{/if}}
+
+{{#if err}}
+  {{#each err.errors}}
+    <div class = "error-user"> *{{message}}</div>
+  {{/each}}
+{{/if}}
+
+<div class = "bottom-register">
+  <div id = "popcorn-img">
+    <img class = "img-rounded pull-left" src = "/images/popping_icon.png" alt="popcorn">
+  </div>
+</div>

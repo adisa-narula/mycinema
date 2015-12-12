@@ -1,0 +1,60 @@
+/* sample documents (JSON / Javascript) literal objects */
+
+Database - MongoDB (Movie Database)
+
+Movie
+  * movie collection
+  * series collection
+  * user collection
+
+Movie Schema - Each movie document contains information about a specific movie including its title, year, etc.
+Users can add movies they would like to watch or when the selector chooses a movie for the user
+based on their preference (year, director, top 250 movies), they can add it to the list of movies they would like to watch.
+
+var Movie = new mongoose.Schema() {
+    title:String,
+    year:String,
+    direction:String,
+    tagline: String,
+    rating: Number
+    funFact: String
+}
+
+Series Schema - Similar to movie document but contains information about a specific series
+
+var Series = new mongoose.Schema() {
+    title:String,
+    year:String,
+    numOfSeasons: String,
+    tagline: String,
+    rating: Number
+    funFact: String
+}
+
+User Schema - contains information about the user that is using the website and their movie
+and series preference
+
+var User = new mongoose.Schema() {
+    name:String,
+    password: String,
+    age:String,
+    statistics: Stats,
+    email: String,
+    movies:[Movie],
+    series: [Series]
+}
+
+Stats schema keeps track of user statistics, which includes the total number of items that they have
+selected to watch, whether this item is movie or tv-series. Statistics is also kept on which genre
+the user chooses to watch the most.
+
+var Stats = new mongoose.Schema() {
+
+    total: Number,
+    movies: Number,
+    tvseries: Number,
+    Documentary: Number,
+    Action: Number,
+    Drama: Number,
+    //other genres
+}

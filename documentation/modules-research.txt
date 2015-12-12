@@ -1,0 +1,45 @@
+Modules and concepts to research: 
+
+List of research topics
+----------------------------------------
+	- External API 
+
+	- Open Movie Database (http://www.omdbapi.com)(3 points)
+	- Rotten Tomato API
+
+		What is it? : 
+		The OMDb API is a free web service to obtain movie information, all content and images on the site are contributed and maintained by the users.
+		Why use it : 
+		API to obtain information about movies that user would potentially like to watch. 
+		Rotten Tomato API: Would use it to obtain rating of the movie 
+
+	- Integrate user authentication. Implement sign up and registration (Google, FB, etc.)
+
+		What is it? : 
+		Login / Signup page for user to log onto the web application. Possibly allow user to sign up through Facebook, Google, Twitter, etc. 
+			Allow users to post on these sites about what movies they're watching or would like to watch
+		Why use it : 
+			Allows the site to identify users / retrieve information about the user to display their 
+			data and saved movies 
+		How? / Tools :
+			Facebook, Google API / User authentication slides 
+	
+	- Using data visualization tool to present the user with statistics about their choices
+
+		What is it? : 
+			Data visualization tool to show user their choices and preference 
+			and encourage them to try watching new things! 
+		Why use it : 
+			So that users can see their top preferences and encourages them to explore genres and watch different movies. 
+		Tool: 
+			D3 - a possibility 
+	
+	- Bootstrap (maybe)
+
+		What is it: 
+			- CSS, HTML and Javascript framework. 
+		Why use it: 
+			- I'm really not a big fan of styling my CSS. 
+		Tools: 
+			- Bootstrap 
+

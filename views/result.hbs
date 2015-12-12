@@ -1,0 +1,91 @@
+
+<h1 class="page-header" "color:#3d3d5c"> <strong>Here's what we got for you: </strong></h1><br>
+</div>
+
+<div id = "movie-picked" value="{{body.id}}">
+  <input type = "hidden" value = "{{body.vote_average}}" id = "rating">
+  <input type = "hidden" value = "{{tv}}" id = "tv-selected">
+  <table id = "info-table">
+    <tr>
+      {{#if tv}}
+        <td class = "header"> Title: </td>
+        <td id = "title">{{body.name}}</td>
+      {{/if}}
+      {{#if movie}}
+        <td class = "header"> Title: </td>
+        <td id = "title">{{body.title}}</td>
+      {{/if}}
+    </tr>
+    <tr>
+      {{#if tv}}
+        <td class = "header"> Release date: </td>
+        <td id = "year">{{body.first_air_date}}</td>
+      {{/if}}
+      {{#if movie}}
+      <td class = "header"> Release date: </td>
+      <td id = "year">{{body.release_date}}</td>
+      {{/if}}
+    </tr>
+    <tr>
+      {{#if movie}}
+      <td class = "header"> Director: </td>
+      <td id = "director"></td>
+      {{/if}}
+    </tr>
+    <tr>
+      <td class = "header"> Genre: </td>
+      <td id = "genre">{{genre}}</td>
+    </tr>
+    <tr>
+      <td class = "header"> Actors: </td>
+      <td id = "actors"></td>
+    </tr>
+    <tr>
+      <td class = "header">Rating:</td>
+      <td id = "s-rating"></td>
+    </tr>
+  </table>
+</div>
+
+<!-- <div id = "more-info">
+<table>
+  <tr>
+    <td id = "poster-img"></td>
+    <td id = "summary"><p>{{body.overview}}</p></td>
+  </tr>
+</table>
+</div> -->
+
+<div id = "more-info">
+    <div id = "poster-img"></div>
+    <div id = "show-summary"> <button type = "button" id = "showSum-btn">Summary</button>
+    <div id = "summary"><p>{{body.overview}}</p></div>
+  </div>
+</div>
+
+<div id= "watch-decision">
+  <form id ="decision" method = "post" action="/decision/movie">
+    <input type = "hidden" name = "title_movie" value  = "{{body.title}}">
+    <input type = "hidden" name = "genre_movie" value  = "{{genre}}">
+    <input type = "hidden" name = "rating_movie" value  = "{{body.vote_average}}">
+    <input type = "hidden" name = "year_movie" value = "{{body.release_date}}">
+    <input type = "submit" name = "user_watch" value = "Save">
+    <input type = "submit" name = "user_watch" value = "Pick again">
+    <input id = "movie_director" type = "hidden" name = "director_movie">
+    <input id = "poster_link" type = "hidden" name = "poster_movie">
+  </form>
+</div>
+
+<div id= "watch-tv">
+  <form id ="decision" method = "post" action="/decision/show">
+    <input type = "hidden" name = "title_movie" value  = "{{body.name}}">
+    <input type = "hidden" name = "genre_movie" value  = "{{genre}}">
+    <input type = "hidden" name = "rating_movie" value  = "{{body.vote_average}}">
+    <input type = "hidden" name = "year_movie" value = "{{body.first_air_date}}">
+    <input type = "submit" name = "user_watch" value = "Watch">
+    <input type = "submit" name = "user_watch" value = "Pick again">
+    <input id = "poster_tv" type = "hidden" name = "poster_movie">
+  </form>
+</div>
+
+<script src='/javascripts/result.js'></script>

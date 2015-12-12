@@ -1,0 +1,14 @@
+<h2> Here's the TV show we picked for you </h2>
+<h3> Title: {{body.Title}} </h3>
+<h3> Year: {{body.Year}} </h3>
+<h3> Director: {{body.Director}} </h3>
+<h3> Actors: {{body.Actors}} </h3>
+<h3> Genre: {{body.Genre}} </h3>
+<img src= {{body.Poster}} alt="Movie Poster">
+<h3> Summary: </h3>
+<p> {{body.Plot}} </p>
+{{# if rated}}
+  <div class = "r-rated">
+    <h3> Rated: {{body.Rated}} </h3>
+  </div>
+{{/if}}

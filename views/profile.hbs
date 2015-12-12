@@ -1,0 +1,134 @@
+<h1 class="page-header" style = "color:#3d3d5c"> {{user}}'s Collection</h1>
+
+{{#if statistic.total}}
+<button type = "button stats-btn" id = "stats-button">View Statistics</button>
+<div id = "stats">
+  <div id = "pie-chart">
+    <!-- <h3 class = "chart-title">Movies vs. Shows</h3><br> -->
+    <canvas id = "canvasOne"></canvas>
+  </div>
+  <div id = "bar-chart">
+    <!-- <h3 class = "chart-title">Genres</h3><br> -->
+    <canvas id = "canvasTwo" width = "700" height= "400"></canvas>
+  </div>
+</div>
+
+<script>
+    var data = {
+    labels: ["Action", "Animation", "Adventure", "Documentary", "Drama", "Comedy", "Crime", "Family", "Kids", "Fantasy","History","Horror", "Mystery", "Sci Fi",
+              "Thriller", "War", "Western", "Reality", "News"],
+    datasets: [
+        {
+            label: "Genre Statistics",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(255,90,94,0.75)",
+            highlightStroke: "rgba(255,90,94,1)",
+            data: [{{statistic.action}},{{statistic.animation}},{{statistic.adventure}},
+              {{statistic.documentary}},{{statistic.drama}},{{statistic.comedy}},{{statistic.crime}},
+              {{statistic.family}},{{statistic.kids}},{{statistic.fantasy}},{{statistic.history}},
+              {{statistic.horror}},{{statistic.mystery}},{{statistic.sci_fi}},{{statistic.thriller}},
+              {{statistic.war}},{{statistic.western}},{{statistic.reality}},{{statistic.news}}]
+        }
+      ]
+    };
+    var dataPie = [
+    {
+        value: {{statistic.shows}},
+        color:"#ffd633",
+        highlight: "#FF5A5E",
+        label: "Shows"
+    },
+    {
+        value: {{statistic.movies}},
+        color: "#46BFBD",
+        highlight: "#FF5A5E",
+        label: "Movies"
+    }
+  ];
+
+    var ctx = document.getElementById("canvasOne").getContext("2d");
+    var bar = document.getElementById("canvasTwo").getContext("2d");
+
+    var myPieChart = new Chart(ctx).Pie(dataPie);
+    var myBarChart = new Chart(bar).Bar(data);
+
+    console.log("{{user}}");
+</script>
+
+<div id = "my-collection">
+<!-- <button type = "button">My Collection</button> -->
+<table id="collection">
+  <tr>
+    <td> <div id="movie-collection">
+    <div id="carousel-1" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="/images/movie_poster.jpg" alt="...">
+        </div>
+        {{#each profile.movies}}
+        <div class="item">
+          <img src="{{poster_url}}" alt="Movie">
+        </div>
+        {{/each}}
+      </div>
+
+      <a class="left carousel-control" href="#carousel-1" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-1" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    </div>
+  </td>
+
+  <td>
+  <div id="tv-collection">
+  <div id="carousel-2" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="/images/show_poster.jpg" alt="TV">
+      </div>
+      {{#each profile.shows}}
+      <div class="item">
+        <img src="{{poster_url}}" alt="TV">
+      </div>
+      {{/each}}
+    </div>
+
+    <a class="left carousel-control" href="#carousel-2" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-2" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  </div></td>
+  </tr>
+</table>
+</div>
+
+{{else}}
+<h3 id = "no-movies"></h3>
+<div class = "bottom">
+  <div id = "popcorn-img">
+    <img class = "img-rounded pull-left" src = "/images/popping_icon.png" alt="popcorn">
+  </div>
+</div>
+{{/if}}

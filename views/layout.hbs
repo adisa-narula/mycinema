@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>my cinema</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Coustard' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src = "/javascripts/Chart.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+        <a class="navbar-brand" href = "/">my cinema</a>
+        <ul class="nav navbar-nav">
+        <li class="active"><a href="/about">About<span class="sr-only">(current)</span></a></li>
+        <li><a href="/select">Selector</a></li>
+        <li><a href="/profile">Profile</a></li>
+        {{#if user}}
+        <li><a href="/logout">Sign Out</a></li>
+        {{else}}
+        <li><a href="/home">Sign In</a></li>
+        {{/if}}
+      </ul>
+      {{#if user}}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a style = "margin-right: 40px">{{user}}</a></li>
+      </ul>
+      {{/if}}
+    </nav>
+
+    <br><br>
+    {{{body}}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src='/javascripts/jQuery.js'></script>
+  </body>
+</html>

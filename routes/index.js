@@ -275,12 +275,12 @@ router.post('/decision/movie', function(req, res) {
         if (err) {
           console.log('problem saving user profile:', saveErr);
         } else {
-          console.log(saveProfile);
+          // console.log(saveProfile);
           //update user profile and save it
-          console.log(profile.first_name);
+          // console.log(profile.first_name);
           Stat.findOne({username:req.session.username}, function (err, statistic, count) {
-            console.log(statistic);
-            console.log('genre:', genre);
+            // console.log(statistic);
+            // console.log('genre:', genre);
             if (genre === "science fiction") {
               genre = "sci_fi";
             }
